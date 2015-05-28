@@ -1,5 +1,17 @@
 extends layout
 
 block content
-	canvas(id="draw", resize="true", width=1280, height=1024)
-	script(type="text/paperscript", src="javascripts/draw.js", canvas="draw")
+	div(class="container")
+		div(class="row")
+			div(class="col-sm-3")
+				div(class="input-group color-picker", id="color-picker")
+					input(type="text", value="", class="form-control")
+					span(class="input-group-addon")
+						i
+			div(class="col-sm-9")
+				canvas(id="draw", resize="true", width=1280, height=1024)
+				script(type="text/paperscript", src="js/draw.js", canvas="draw")
+	script(type="text/javascript").
+		$(function(){
+			$('.color-picker').colorpicker();
+		});
